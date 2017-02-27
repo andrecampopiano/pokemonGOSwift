@@ -13,6 +13,8 @@
 		946FDCF41E64ACF40029E9DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 946FDCE51E64ACF40029E9DF /* Main.storyboard */; };
 		946FDCF51E64ACF40029E9DF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946FDCEA1E64ACF40029E9DF /* MapViewController.swift */; };
 		946FDCF61E64ACF40029E9DF /* PokemonGo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 946FDCEC1E64ACF40029E9DF /* PokemonGo.xcdatamodeld */; };
+		946FDCF91E64B0940029E9DF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946FDCF81E64B0940029E9DF /* MapKit.framework */; };
+		946FDCFB1E64B0A80029E9DF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946FDCFA1E64B0A80029E9DF /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		946FDCE61E64ACF40029E9DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		946FDCEA1E64ACF40029E9DF /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		946FDCED1E64ACF40029E9DF /* PokemonGo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PokemonGo.xcdatamodel; sourceTree = "<group>"; };
+		946FDCF81E64B0940029E9DF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		946FDCFA1E64B0A80029E9DF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				946FDCFB1E64B0A80029E9DF /* CoreLocation.framework in Frameworks */,
+				946FDCF91E64B0940029E9DF /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +48,7 @@
 			children = (
 				946FDCC51E64AB420029E9DF /* PokemonGo */,
 				946FDCC41E64AB420029E9DF /* Products */,
+				946FDCF71E64B0940029E9DF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,6 +160,15 @@
 			children = (
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		946FDCF71E64B0940029E9DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				946FDCFA1E64B0A80029E9DF /* CoreLocation.framework */,
+				946FDCF81E64B0940029E9DF /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
