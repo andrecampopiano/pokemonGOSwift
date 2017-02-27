@@ -33,6 +33,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
+        if let coordinate = managerLocation.location?.coordinate {
+            
+            let region = MKCoordinateRegionMakeWithDistance(coordinate, 200, 200)
+            
+            mapView.setRegion(region, animated: true)
+        }
+        
+        
+        
     }
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status != .authorizedWhenInUse {
