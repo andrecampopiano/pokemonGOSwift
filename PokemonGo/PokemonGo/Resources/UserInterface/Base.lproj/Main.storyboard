@@ -44,6 +44,7 @@
                                 <state key="normal" backgroundImage="pokeball"/>
                                 <connections>
                                     <action selector="openPokedex:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qck-dn-LcX"/>
+                                    <segue destination="TtK-2t-tQ6" kind="presentation" id="r8k-bC-wkN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -67,9 +68,66 @@
             </objects>
             <point key="canvasLocation" x="140" y="138.98050974512745"/>
         </scene>
+        <!--Poke Dex View Controller-->
+        <scene sceneID="61E-HN-ne2">
+            <objects>
+                <viewController id="TtK-2t-tQ6" customClass="PokeDexViewController" customModule="PokemonGo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e6p-Xd-rZb"/>
+                        <viewControllerLayoutGuide type="bottom" id="eQf-0M-E4l"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ovS-8k-3MU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cDb-ya-cR9">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="L5k-re-dOQ">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L5k-re-dOQ" id="URC-7A-BpC">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VY0-Xl-Et3">
+                                <rect key="frame" x="162" y="607" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="3ay-4O-NCB"/>
+                                    <constraint firstAttribute="width" constant="50" id="V46-kZ-xgq"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="map"/>
+                                <connections>
+                                    <action selector="backMap:" destination="TtK-2t-tQ6" eventType="touchUpInside" id="IUR-pw-GJK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eQf-0M-E4l" firstAttribute="top" secondItem="cDb-ya-cR9" secondAttribute="bottom" id="24y-iy-XLG"/>
+                            <constraint firstAttribute="trailing" secondItem="cDb-ya-cR9" secondAttribute="trailing" id="Bed-Vd-YN7"/>
+                            <constraint firstItem="VY0-Xl-Et3" firstAttribute="centerX" secondItem="ovS-8k-3MU" secondAttribute="centerX" id="EqX-YP-D3P"/>
+                            <constraint firstItem="eQf-0M-E4l" firstAttribute="top" secondItem="VY0-Xl-Et3" secondAttribute="bottom" constant="10" id="WM9-gQ-KeU"/>
+                            <constraint firstItem="cDb-ya-cR9" firstAttribute="leading" secondItem="ovS-8k-3MU" secondAttribute="leading" id="ehg-bp-SMB"/>
+                            <constraint firstItem="cDb-ya-cR9" firstAttribute="top" secondItem="ovS-8k-3MU" secondAttribute="top" constant="20" id="vWz-PJ-lFo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="cDb-ya-cR9" id="Lot-jF-Xgy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YFA-sa-8L8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1004" y="138.98050974512745"/>
+        </scene>
     </scenes>
     <resources>
         <image name="compass" width="512" height="512"/>
+        <image name="map" width="512" height="512"/>
         <image name="pokeball" width="512" height="512"/>
     </resources>
 </document>

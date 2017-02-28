@@ -18,6 +18,7 @@
 		94B1FC5C1E650005004F3CC5 /* pokemons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94B1FC5B1E650005004F3CC5 /* pokemons.xcassets */; };
 		94B1FC5E1E65020E004F3CC5 /* CoreDataPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B1FC5D1E65020E004F3CC5 /* CoreDataPokemon.swift */; };
 		94B1FC601E650BA2004F3CC5 /* PokemonAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B1FC5F1E650BA2004F3CC5 /* PokemonAnnotation.swift */; };
+		94C599BB1E650FBF00EEEEBB /* PokeDexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C599BA1E650FBF00EEEEBB /* PokeDexViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		94B1FC5B1E650005004F3CC5 /* pokemons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = pokemons.xcassets; sourceTree = "<group>"; };
 		94B1FC5D1E65020E004F3CC5 /* CoreDataPokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataPokemon.swift; sourceTree = "<group>"; };
 		94B1FC5F1E650BA2004F3CC5 /* PokemonAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonAnnotation.swift; sourceTree = "<group>"; };
+		94C599BA1E650FBF00EEEEBB /* PokeDexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeDexViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				946FDCEA1E64ACF40029E9DF /* MapViewController.swift */,
+				94C599BA1E650FBF00EEEEBB /* PokeDexViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94B1FC5E1E65020E004F3CC5 /* CoreDataPokemon.swift in Sources */,
+				94C599BB1E650FBF00EEEEBB /* PokeDexViewController.swift in Sources */,
 				946FDCF11E64ACF40029E9DF /* AppDelegate.swift in Sources */,
 				946FDCF61E64ACF40029E9DF /* PokemonGo.xcdatamodeld in Sources */,
 				94B1FC601E650BA2004F3CC5 /* PokemonAnnotation.swift in Sources */,

@@ -70,6 +70,35 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         return annotationView
     }
 
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        let annotation = view.annotation
+        let pokemon = (view.annotation as! PokemonAnnotation).pokemon
+        
+        mapView.deselectAnnotation(annotation, animated: true)
+        
+        if annotation is MKUserLocation {
+            return
+        }
+        if let coordAnnotation = annotation?.coordinate {
+            let region = MKCoordinateRegionMakeWithDistance(coordAnnotation, 200, 200)
+            mapView.setRegion(region, animated: true)
+        }
+        
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
+            if let coord = self.managerLocation.location?.coordinate {
+                if MKMapRectContainsPoint(self.mapView.visibleMapRect, MKMapPointForCoordinate(coord)) {
+                    print("voce pode capturar")
+                    self.coreDataPokemon.savePokemon(pokemon: pokemon)
+                }else {
+                    print("voce nao pode")
+                }
+            }
+
+        }
+        
+
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

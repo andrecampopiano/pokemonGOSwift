@@ -53,6 +53,16 @@ class CoreDataPokemon {
         }
     }
     
+    func savePokemon(pokemon:Pokemon){
+        let managerObjects = getManagerObjects()
+        pokemon.capturado = true
+        
+        do {
+            try managerObjects.save()
+        }catch let erro as NSError{
+            print("erro ao capturar pokemon\(erro.description)")
+        }
+    }
     
     //criar os pokemons
     func createPokemon(nome:String, nomeImagem:String, capturado:Bool){
@@ -60,6 +70,7 @@ class CoreDataPokemon {
         let pokemon = Pokemon(context: managerObjects)
         pokemon.nome = nome
         pokemon.nomeImagem = nomeImagem
+        pokemon.capturado = capturado
         
     }
     
@@ -78,5 +89,23 @@ class CoreDataPokemon {
             print("Erro ao recuperar \(erro.description)!")
         }
         return []
+    }
+    
+    func recoveryPokemonCaptured(captured:Bool)->[Pokemon]{
+        let managerObjects = self.getManagerObjects()
+        
+        let request = Pokemon.fetchRequest() as NSFetchRequest<Pokemon>
+        request.predicate = NSPredicate(format: "capturado = %@", captured as CVarArg)
+        
+        do{
+            let pokemons = try managerObjects.fetch(request) as [Pokemon]
+            return pokemons
+        }catch let erro as NSError{
+            print("Erro ao recuperar\(erro.description)")
+        }
+        
+        
+        return []
+        
     }
 }
