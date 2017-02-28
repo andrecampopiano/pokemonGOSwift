@@ -14,6 +14,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBOutlet weak var mapView: MKMapView!
     var managerLocation = CLLocationManager()
     var contador:Int = 0
+    var coreDataPokemon:CoreDataPokemon!
+    var pokemons: [Pokemon] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,11 +28,21 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         managerLocation.requestWhenInUseAuthorization()
         managerLocation.startUpdatingLocation()
         
+        //recuperar pokemons
+        self.coreDataPokemon = CoreDataPokemon()
+        self.pokemons = self.coreDataPokemon.recoveryAllPokemons()
+        
+        
+        
         //Exibir pokemons
         Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in
-            print("teste")
             if let coordinate = self.managerLocation.location?.coordinate{
-                let annotation = MKPointAnnotation()
+                
+                let totalPokemons = UInt32(self.pokemons.count)
+                let indexPokemonRandow = arc4random_uniform(totalPokemons)
+                let pokemon = self.pokemons[Int(indexPokemonRandow)]
+                
+                let annotation = PokemonAnnotation(coordinates: coordinate, pokemon:pokemon)
                 annotation.coordinate = coordinate
                 annotation.coordinate.latitude += (Double(arc4random_uniform(400)) - 200) / 100000.0
                 annotation.coordinate.longitude += (Double(arc4random_uniform(400)) - 200) / 100000.0
@@ -42,13 +56,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
         
-        
-        
-        
         if annotation is MKUserLocation {
             annotationView.image = #imageLiteral(resourceName: "player")
         }else{
-            annotationView.image = #imageLiteral(resourceName: "pikachu-2")
+             let anot = (annotation as! PokemonAnnotation)
+            annotationView.image = UIImage(named: anot.pokemon.nomeImagem!)
         }
         
         var frame = annotationView.frame
